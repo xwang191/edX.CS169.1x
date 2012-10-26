@@ -54,5 +54,4 @@ Scenario: all ratings selected
     And I press "ratings_submit"
   Then I should see the following ratings checked: G, PG, PG-13, R, NC-17
     And I should see all the movies
-    And show me the page
 
