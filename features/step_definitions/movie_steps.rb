@@ -13,8 +13,9 @@ end
 #   on the same page
 
 Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
-  puts page.body =~ /#{e1}.*#{e2}/
-  page.body =~ /#{e1}.*#{e2}/
+#puts "#{e1}.+#{e2}"
+#puts page.body =~ /#{e1}.*+{e2}/m
+  assert(page.body =~ /#{e1}.*#{e2}/m, "wrong order")
   #  ensure that that e1 occurs before e2.
   #  page.content  is the entire content of the page as a string.
 #flunk "Unimplemented"
