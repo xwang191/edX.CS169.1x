@@ -87,7 +87,14 @@ When /^(?:|I )select "([^"]*)" from "([^"]*)"$/ do |value, field|
 end
 
 When /^(?:|I )check "([^"]*)"$/ do |field|
+  puts field
   check(field)
+end
+
+When /I uncheked all other rating checkboxes/ do
+  [ 'ratings_G', 'rating_PG', 'rating_PG-13', 'ratings_R', 'ratings_NC-17'].each do |box| 
+    uncheck(box) if page.has_selector?("#ratings_form ##{box}")
+  end
 end
 
 When /^(?:|I )uncheck "([^"]*)"$/ do |field|
